@@ -1,3 +1,24 @@
-.vscode/
-*.exe
+# --- Compilação ---
+# Ignora todos os arquivos executáveis (sem extensão no Linux/WSL)
+# Cuidado: se você tiver arquivos sem extensão que NÃO sejam binários, 
+# é melhor ignorar por nome (ex: a.out)
 *.out
+*.exe
+*.o
+*.obj
+
+# --- Pastas de IDEs ---
+# Se você usa VS Code, ele cria pastas de configuração local
+.vscode/
+.history/
+*.log
+
+# --- Arquivos do Sistema ---
+# Arquivos que o Windows cria em pastas compartilhadas
+Thumbs.db
+Desktop.ini
+
+# --- Backup e Temporários ---
+*.bak
+*.swp
+*~
