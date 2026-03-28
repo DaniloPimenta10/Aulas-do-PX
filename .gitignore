@@ -22,3 +22,9 @@ Desktop.ini
 *.bak
 *.swp
 *~
+
+# Ignorar todos os arquivos na pasta EP/
+EP/*
+
+# Mas NÃO ignorar os arquivos que terminam com .c
+!EP/*.c
