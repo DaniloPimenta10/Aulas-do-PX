@@ -37,23 +37,3 @@ i++;
 
 }
 
-
-int main() {
-    // Strings de teste baseadas no seu exercício
-    char s1[] = "Quarta";
-    char s2[] = "Segunda";
-    
-    // O destino precisa ter tamanho suficiente: (6 + 7) + 1 para o '\0'
-    // Vamos colocar um tamanho de 50 para garantir
-    char resultado[50]; 
-
-    // Chama a sua função
-    intercala_strings(s1, s2, resultado);
-
-    // Exibe o resultado para conferir
-    printf("String 1: %s\n", s1);
-    printf("String 2: %s\n", s2);
-    printf("Resultado intercalado: %s\n", resultado);
-
-    return 0;
-}
