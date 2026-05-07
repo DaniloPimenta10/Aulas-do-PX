@@ -129,7 +129,7 @@ DynVec *dv_union(DynVec *dv1, DynVec *dv2)
     for (int i=0; i < dv_size(dv1); i++)
     {   
         int v = dv_get(dv1, i);
-        if (dv_is_in(dv, v))
+        if (dv_is_in(dv, v) == 0)
             {
                 dv_insert(dv, v);
             }
@@ -138,7 +138,7 @@ DynVec *dv_union(DynVec *dv1, DynVec *dv2)
     for (int i=0; i < dv_size(dv2); i++)
     {   
         int v = dv_get(dv2, i);
-        if (dv_is_in(dv, v))
+        if (dv_is_in(dv, v) == 0)
             {
                 dv_insert(dv, v);
             }

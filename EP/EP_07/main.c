@@ -18,10 +18,12 @@ int main()
   dv_insert(dv1, 1);
   dv_insert(dv1, 3);
   dv_insert(dv1, 6);
-  dv_insert(dv2, 10);
+  dv_insert(dv2, 6);
   dv_insert(dv2, 20);
+  dv_insert(dv2, 3);
 
-  dv = dv_concatenate(dv1, dv2);
+  dv = dv_intersection(dv1, dv2);
+
   dv_print_values(dv);
   return 0;
 }
