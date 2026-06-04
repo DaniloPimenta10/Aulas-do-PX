@@ -1,35 +1,53 @@
-#include "stack.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
 
-int main()
-{
+int main() {
+    FILE *file = fopen("entrada.txt", "r");
+    if (file == NULL) {
+        printf("Erro ao abrir o arquivo\n");
+        return 1;
+    }
+
     Stack *s = s_create();
-    s_push(s, 1);
-    s_push(s, 2);
-    s_print(s);
-    printf("\n");
+    
+    char ch;
+    int v = 1; 
 
-    s_push(s, 3);
-    s_push(s, 4);
-    s_print(s);
-    printf("\n");
+    while ((ch = fgetc(file)) != EOF) {
 
-    printf("Popping %.2f from s\n", s_pop(s));
-    printf("Popping %.2f from s\n\n", s_pop(s));
-    s_print(s);
-    printf("\n");
+        if (ch == '(' || ch == '[') {
+            s_push(s, ch);
+        } 
+        
+        else if (ch == ')' || ch == ']') {
 
-    s_push(s, 5);
-    s_push(s, 6);
-    s_print(s);
-    printf("\n");
+            if (s_is_empty(s)) {
+                v = 0;
+                break;
+            }
 
-    s_push(s, 7);
-    s_print(s);
-    printf("\n");
-    printf("\n");
+            char top_char = (char)s_pop(s);
+
+            if ((ch == ')' && top_char != '(') || (ch == ']' && top_char != '[')) {
+                v = 0;
+                break;
+            }
+        }
+    }
+
+    if (!s_is_empty(s)) {
+        v = 0;
+    }
+
+    if (v) {
+        printf("success\n");
+    } else {
+        printf("fail\n");
+    }
 
     s_free(s);
+    fclose(file);
 
     return 0;
 }
